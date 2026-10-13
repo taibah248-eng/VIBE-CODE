@@ -1,0 +1,623 @@
+/* ==========================================================================
+   TASKFLOW - MOBILE DESIGN SYSTEM & CORE STYLES
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Dark Theme (Default) */
+  --bg-primary: #0b0f19;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1f2937;
+  --bg-card: rgba(17, 24, 39, 0.85);
+  --bg-card-hover: rgba(31, 41, 55, 0.95);
+  --bg-glass: rgba(17, 24, 39, 0.7);
+  --bg-sheet: #131b2e;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-focus: rgba(99, 102, 241, 0.6);
+
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --text-tertiary: #6b7280;
+  --text-inverse: #0b0f19;
+
+  /* Brand Accents */
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-light: rgba(99, 102, 241, 0.15);
+  --primary-glow: rgba(99, 102, 241, 0.35);
+
+  --accent-purple: #8b5cf6;
+  --accent-purple-light: rgba(139, 92, 246, 0.15);
+
+  /* Semantic Feedback */
+  --priority-high: #ef4444;
+  --priority-high-bg: rgba(239, 68, 68, 0.12);
+  --priority-medium: #f59e0b;
+  --priority-medium-bg: rgba(245, 158, 11, 0.12);
+  --priority-low: #10b981;
+  --priority-low-bg: rgba(16, 185, 129, 0.12);
+
+  --success: #10b981;
+  --success-bg: rgba(16, 185, 129, 0.15);
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+
+  /* Category Accents */
+  --cat-work: #3b82f6;
+  --cat-personal: #ec4899;
+  --cat-study: #8b5cf6;
+  --cat-shopping: #10b981;
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Layout & Spacing */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 36px -6px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.35);
+
+  --safe-top: 44px;
+  --safe-bottom: 34px;
+  --nav-height: 72px;
+
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-hover: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.82);
+  --bg-sheet: #ffffff;
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-medium: rgba(0, 0, 0, 0.14);
+  --border-focus: rgba(79, 70, 229, 0.6);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  --text-inverse: #f8fafc;
+
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: rgba(79, 70, 229, 0.1);
+  --primary-glow: rgba(79, 70, 229, 0.25);
+
+  --accent-purple: #7c3aed;
+  --accent-purple-light: rgba(124, 58, 237, 0.1);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 36px -6px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.2);
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background-color: #030712;
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  user-select: none;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* Hide scrollbars but keep smooth scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   DESKTOP PREVIEW WRAPPER & TOOLBAR
+   ========================================================================== */
+
+.app-viewport-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: radial-gradient(circle at 50% 10%, #1e1b4b 0%, #090d16 60%, #030712 100%);
+  padding: 16px 12px 28px;
+  transition: background var(--transition-normal);
+}
+
+.desktop-control-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 14px;
+  padding: 10px 18px;
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  z-index: 100;
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.brand-badge img {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.brand-badge span {
+  background: linear-gradient(135deg, #a5b4fc, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.controls-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.view-mode-btn,
+.theme-quick-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.view-mode-btn:hover,
+.theme-quick-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.view-mode-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 12px var(--primary-glow);
+}
+
+/* ==========================================================================
+   MOBILE DEVICE FRAME & SCREEN CONTAINER
+   ========================================================================== */
+
+.mobile-device-chassis {
+  position: relative;
+  width: 100%;
+  max-width: 412px;
+  height: 870px;
+  background-color: var(--bg-primary);
+  border-radius: 50px;
+  box-shadow:
+    0 0 0 12px #181d29,
+    0 0 0 14px #2b3244,
+    0 25px 60px -10px rgba(0, 0, 0, 0.8),
+    0 0 50px rgba(99, 102, 241, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fullscreen Mode (removes outer phone shell) */
+.app-viewport-wrapper.fullscreen-mode .mobile-device-chassis {
+  max-width: 540px;
+  height: 100vh;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.app-viewport-wrapper.fullscreen-mode .desktop-control-bar {
+  max-width: 540px;
+}
+
+/* Real mobile devices */
+@media (max-width: 480px) {
+  .app-viewport-wrapper {
+    padding: 0;
+    background: var(--bg-primary);
+  }
+
+  .desktop-control-bar {
+    display: none;
+  }
+
+  .mobile-device-chassis {
+    max-width: 100% !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
+
+/* ==========================================================================
+   STATUS BAR & DYNAMIC ISLAND
+   ========================================================================== */
+
+.device-status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  z-index: 900;
+  pointer-events: none;
+}
+
+.status-time {
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.status-notch {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 28px;
+  background-color: #000000;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  transition: width 0.3s ease;
+}
+
+.status-notch-cam {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #111827;
+  border: 1px solid #1f2937;
+}
+
+.status-notch-sensor {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #030712;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+}
+
+.status-icons svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   SCREEN CONTAINER & TRANSITIONS
+   ========================================================================== */
+
+.screen-container {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  padding-top: 48px;
+  /* space for status bar */
+  padding-bottom: 72px;
+  /* space for bottom nav */
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fullscreen screens (Splash, Onboarding, Sign-in, Sign-up) don't have bottom nav */
+.screen-container.auth-mode {
+  padding-bottom: 0;
+}
+
+.app-screen {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  bottom: 72px;
+  display: none;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px 20px 24px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  background-color: var(--bg-primary);
+}
+
+.app-screen.full-bleed {
+  top: 0;
+  bottom: 0;
+  padding: 0;
+}
+
+.app-screen.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 10;
+}
+
+/* Screen Headers */
+.screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-top: 6px;
+}
+
+.header-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.header-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.header-action-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.header-action-btn:hover {
+  background: var(--bg-tertiary);
+  transform: translateY(-1px);
+}
+
+.badge-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+}
+
+/* ==========================================================================
+   BOTTOM NAVIGATION BAR
+   ========================================================================== */
+
+.bottom-nav-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 8px 10px;
+  z-index: 500;
+  transition: transform var(--transition-normal), background var(--transition-normal);
+}
+
+.bottom-nav-bar.hidden {
+  transform: translateY(100%);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 1;
+  height: 100%;
+  color: var(--text-tertiary);
+  transition: all var(--transition-fast);
+  background: transparent;
+  border: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-item svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  transition: transform var(--transition-bounce), stroke var(--transition-fast);
+}
+
+.nav-item:hover {
+  color: var(--text-secondary);
+}
+
+.nav-item.active {
+  color: var(--primary);
+}
+
+.nav-item.active svg {
+  stroke: var(--primary);
+  transform: translateY(-2px) scale(1.08);
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+}
+
+/* Floating Action Button inside Bottom Nav */
+.nav-fab-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px -2px var(--primary-glow);
+  transform: translateY(-16px);
+  border: 4px solid var(--bg-primary);
+  transition: transform var(--transition-bounce), box-shadow var(--transition-fast);
+}
+
+.nav-fab-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  transition: transform var(--transition-bounce);
+}
+
+.nav-fab-btn:hover {
+  transform: translateY(-19px) scale(1.05);
+  box-shadow: 0 12px 26px var(--primary-glow);
+}
+
+.nav-fab-btn:active {
+  transform: translateY(-14px) scale(0.96);
+}
+
+/* ==========================================================================
+   HOME INDICATOR BAR (iOS STYLE)
+   ========================================================================== */
+
+.home-indicator-bar {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 135px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  z-index: 600;
+  pointer-events: none;
+}
+
+[data-theme="light"] .home-indicator-bar {
+  background-color: rgba(0, 0, 0, 0.25);
+}

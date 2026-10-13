@@ -1,0 +1,627 @@
+/* ==========================================================================
+   TASKFLOW - MOBILE CHASSIS, ONBOARDING, SCREENS & POLISH
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SPLASH SCREEN (#screen-splash)
+   -------------------------------------------------------------------------- */
+
+.splash-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px;
+  background: radial-gradient(circle at 50% 40%, rgba(99, 102, 241, 0.15) 0%, transparent 70%), var(--bg-primary);
+}
+
+.splash-logo-wrapper {
+  position: relative;
+  width: 108px;
+  height: 108px;
+  margin-bottom: 24px;
+}
+
+.splash-logo-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  object-fit: cover;
+  box-shadow: 0 12px 36px var(--primary-glow);
+  animation: splashPulse 2.4s infinite ease-in-out;
+}
+
+@keyframes splashPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 12px 36px var(--primary-glow);
+  }
+
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 16px 48px rgba(99, 102, 241, 0.55);
+  }
+}
+
+.splash-app-name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.splash-tagline {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 260px;
+  line-height: 1.4;
+  margin-bottom: 36px;
+}
+
+.splash-loader-bar {
+  width: 140px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.splash-loader-fill {
+  width: 40%;
+  height: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+  position: absolute;
+  animation: splashLoad 1.6s infinite ease-in-out;
+}
+
+@keyframes splashLoad {
+  0% {
+    left: -40%;
+    width: 30%;
+  }
+
+  50% {
+    left: 40%;
+    width: 50%;
+  }
+
+  100% {
+    left: 100%;
+    width: 30%;
+  }
+}
+
+.splash-version-tag {
+  position: absolute;
+  bottom: 30px;
+  font-size: 0.74rem;
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   2. ONBOARDING SCREEN (#screen-onboarding)
+   -------------------------------------------------------------------------- */
+
+.onboarding-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 20px 32px;
+}
+
+.onboarding-skip-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.onboarding-skip-btn {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  padding: 6px 12px;
+}
+
+.onboarding-skip-btn:hover {
+  color: var(--text-primary);
+}
+
+.onboarding-slides-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.onboarding-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.onboarding-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.onboarding-hero-image-wrap {
+  width: 220px;
+  height: 220px;
+  margin-bottom: 24px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.onboarding-hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.onboarding-slide-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.onboarding-slide-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  max-width: 280px;
+}
+
+.onboarding-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.onboarding-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.onboarding-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border-medium);
+  transition: all var(--transition-bounce);
+  cursor: pointer;
+}
+
+.onboarding-dot.active {
+  width: 24px;
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.onboarding-btn-group {
+  display: flex;
+  gap: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   3. AUTH SCREENS (Sign-in & Sign-up)
+   -------------------------------------------------------------------------- */
+
+.auth-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px 0 20px;
+}
+
+.auth-avatar-picker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.auth-avatar-preview {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
+.auth-or-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+  color: var(--text-tertiary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.auth-or-divider::before,
+.auth-or-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   4. PROFILE & SETTINGS SCREEN
+   -------------------------------------------------------------------------- */
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  margin-bottom: 20px;
+}
+
+.profile-avatar-wrap {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+}
+
+.profile-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
+.profile-status-online {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--success);
+  border: 2px solid var(--bg-primary);
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.profile-role-badge {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+  margin-top: 4px;
+}
+
+.settings-group {
+  margin-bottom: 24px;
+}
+
+.settings-group-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.settings-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.settings-row:last-child {
+  border-bottom: none;
+}
+
+.settings-row:hover {
+  background: var(--bg-card-hover);
+}
+
+.settings-row-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.settings-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.settings-icon-box svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.settings-row-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.settings-row-sublabel {
+  font-size: 0.74rem;
+  color: var(--text-tertiary);
+}
+
+/* Switch Toggle Component */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-medium);
+  border-radius: 24px;
+  transition: 0.28s;
+}
+
+.toggle-slider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toggle-switch input:checked+.toggle-slider {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.toggle-switch input:checked+.toggle-slider::before {
+  transform: translateX(20px);
+}
+
+/* --------------------------------------------------------------------------
+   5. TASK DETAILS VIEW (#modal-task-details)
+   -------------------------------------------------------------------------- */
+
+.detail-header-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.detail-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.detail-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  background: var(--bg-secondary);
+  padding: 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 16px;
+}
+
+.detail-meta-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 16px;
+}
+
+.detail-meta-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.detail-meta-label {
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.detail-meta-val {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.detail-subtasks-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.detail-subtask-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.detail-subtask-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.detail-subtask-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.detail-subtask-item:hover {
+  background: var(--bg-tertiary);
+}
+
+.detail-subtask-item.checked {
+  opacity: 0.6;
+}
+
+.detail-subtask-item.checked .detail-subtask-label {
+  text-decoration: line-through;
+  color: var(--text-tertiary);
+}
+
+/* --------------------------------------------------------------------------
+   6. NOTIFICATION PREFERENCES VIEW
+   -------------------------------------------------------------------------- */
+
+.notification-permission-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: var(--radius-lg);
+  margin-bottom: 20px;
+}
+
+.notif-banner-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.notif-banner-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+  stroke-width: 2;
+  fill: none;
+}
+
+.notif-banner-text h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.notif-banner-text p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
