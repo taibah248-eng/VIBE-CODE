@@ -1,0 +1,16 @@
+{
+  "name": "taskflow-mobile-app",
+  "version": "2.4.0",
+  "description": "TaskFlow - Modern Standard To-Do Mobile Productivity Application",
+  "scripts": {},
+  "keywords": [
+    "todo",
+    "productivity",
+    "mobile-app",
+    "task-management",
+    "vasnilla-js",
+    "pwa"
+  ],
+  "author": "Antigravity Senior Product Designer & Developer",
+  "license": "MIT"
+}
